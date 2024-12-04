@@ -43,6 +43,11 @@ def print_uczestnik_on_screen(root,cursor):
             e.grid(row=i, column=j, sticky="NEWS")
             e.insert(END,dataset[i][j])
 
+def add_table(root,cursor):
+    top=Toplevel(root)
+    top.geometry("400x400")
+    top.attributes('-topmost',True)
+
 
 if __name__ == "__main__":
     load_dotenv()
@@ -55,8 +60,17 @@ if __name__ == "__main__":
     connection = load_database()
     cursor = connection.cursor()
     set_path(cursor)
-    button1= Button(root, text="Wyprintuj uczestników kursu", command=lambda:print_uczestnik_on_screen(root,cursor))
+    ###Dividing root frame to parts and placing them
+    left_frame=Frame(root,width=200, height=200, background="crimson")
+    left_frame.pack(side=LEFT)
+    right_frame=Frame(root, width=800, height=500, background="lightgreen")
+    right_frame.pack(side=RIGHT)
+    ### Table_test
+
+    button1= Button(left_frame, text="Wyprintuj uczestników kursu", command=lambda:print_uczestnik_on_screen(right_frame,cursor))
+    button2= Button(left_frame, text="Dodaj tabelę", command=lambda:add_table(root,cursor)) #włóż oba w widget
     button1.place(x=50,y=50)
+    button2.place(x=100,y=100)
     root.mainloop()
     
     

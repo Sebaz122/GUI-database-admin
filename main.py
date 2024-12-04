@@ -23,9 +23,6 @@ def print_uczestnik(cursor):
 def set_path(cursor):
     cursor.execute("SET SEARCH_PATH to kurs")
 
-def load_window():
-    ...
-    #May be done in function in future
 def window_center(root):
     window_width=1280
     window_height=720
@@ -58,7 +55,6 @@ if __name__ == "__main__":
     connection = load_database()
     cursor = connection.cursor()
     set_path(cursor)
-    #print_uczestnik(cursor)
     button1= Button(root, text="Wyprintuj uczestników kursu", command=lambda:print_uczestnik_on_screen(root,cursor))
     button1.place(x=50,y=50)
     root.mainloop()

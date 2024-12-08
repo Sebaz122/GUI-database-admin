@@ -1,0 +1,101 @@
+dostawca_id,nazwa,nr_telefonu,email
+1,ABC Spedycja,555-751-869,abc.spedycja@example.com
+2,XZY Dostawy,555-719-560,xzy.dostawy@dostawy.com
+3,Globalne Logistyki,555-909-926,globalne.logistyki@dostawy.com
+4,Szybka Dostawa,555-148-197,szybka.dostawa@przesylki.pl
+5,Express Towary,555-340-472,express.towary@logistyka.pl
+6,Prime Logistyka,555-627-890,prime.logistyka@business.com
+7,Peak Przesyłki,555-819-385,peak.przesyłki@przesylki.pl
+8,Wyższa Jakość,555-261-164,wyższa.jakość@przesylki.pl
+9,Rapida Transport,555-886-969,rapida.transport@logistyka.pl
+10,Ultra Przesyłki,555-269-765,ultra.przesyłki@example.com
+11,Optymalna Logistyka,555-695-206,optymalna.logistyka@logistyka.pl
+12,Logistyczna Doskonałość,555-154-304,logistyczna.doskonałość@logistyka.pl
+13,Dostawcy24,555-493-920,dostawcy24@dostawy.com
+14,Eksport Spedycja,555-740-920,eksport.spedycja@przesylki.pl
+15,Centrum Transportu,555-128-103,centrum.transportu@przesylki.pl
+16,Kurierzy Polscy,555-284-227,kurierzy.polscy@dostawy.com
+17,Transport Polska,555-328-307,transport.polska@logistyka.pl
+18,Dostawy Ekspres,555-358-519,dostawy.ekspres@example.com
+19,Ładunki24,555-717-474,ładunki24@przesylki.pl
+20,Supplies Spedycja,555-475-512,supplies.spedycja@logistyka.pl
+21,Global Freight,555-782-863,global.freight@dostawy.com
+22,Speedy Cargo,555-866-757,speedy.cargo@dostawy.com
+23,Secure Transport,555-242-815,secure.transport@przesylki.pl
+24,Logistyk24,555-249-552,logistyk24@business.com
+25,Trans Polska,555-723-920,trans.polska@dostawy.com
+26,Ruch Towarowy,555-380-428,ruch.towarowy@przesylki.pl
+27,Kierunek Logistyka,555-569-791,kierunek.logistyka@example.com
+28,Transport Nowe,555-649-285,transport.nowe@przesylki.pl
+29,ABC Spedycja,555-731-345,abc.spedycja@example.com
+30,XZY Dostawy,555-959-654,xzy.dostawy@example.com
+31,Globalne Logistyki,555-109-997,globalne.logistyki@dostawy.com
+32,Szybka Dostawa,555-597-205,szybka.dostawa@business.com
+33,Express Towary,555-725-942,express.towary@example.com
+34,Prime Logistyka,555-152-122,prime.logistyka@business.com
+35,Peak Przesyłki,555-503-781,peak.przesyłki@dostawy.com
+36,Wyższa Jakość,555-970-706,wyższa.jakość@business.com
+37,Rapida Transport,555-172-774,rapida.transport@example.com
+38,Ultra Przesyłki,555-662-151,ultra.przesyłki@dostawy.com
+39,Optymalna Logistyka,555-202-151,optymalna.logistyka@logistyka.pl
+40,Logistyczna Doskonałość,555-272-249,logistyczna.doskonałość@logistyka.pl
+41,Dostawcy24,555-471-206,dostawcy24@example.com
+42,Eksport Spedycja,555-545-111,eksport.spedycja@logistyka.pl
+43,Centrum Transportu,555-805-277,centrum.transportu@dostawy.com
+44,Kurierzy Polscy,555-672-123,kurierzy.polscy@example.com
+45,Transport Polska,555-207-853,transport.polska@logistyka.pl
+46,Dostawy Ekspres,555-142-499,dostawy.ekspres@logistyka.pl
+47,Ładunki24,555-795-892,ładunki24@business.com
+48,Supplies Spedycja,555-982-972,supplies.spedycja@example.com
+49,Global Freight,555-225-648,global.freight@dostawy.com
+50,Speedy Cargo,555-417-346,speedy.cargo@dostawy.com
+51,Secure Transport,555-988-808,secure.transport@example.com
+52,Logistyk24,555-911-327,logistyk24@example.com
+53,Trans Polska,555-336-106,trans.polska@przesylki.pl
+54,Ruch Towarowy,555-227-704,ruch.towarowy@example.com
+55,Kierunek Logistyka,555-617-587,kierunek.logistyka@dostawy.com
+56,Transport Nowe,555-955-333,transport.nowe@business.com
+57,ABC Spedycja,555-549-358,abc.spedycja@dostawy.com
+58,XZY Dostawy,555-842-992,xzy.dostawy@business.com
+59,Globalne Logistyki,555-454-806,globalne.logistyki@logistyka.pl
+60,Szybka Dostawa,555-992-306,szybka.dostawa@logistyka.pl
+61,Express Towary,555-892-892,express.towary@business.com
+62,Prime Logistyka,555-750-861,prime.logistyka@przesylki.pl
+63,Peak Przesyłki,555-742-215,peak.przesyłki@logistyka.pl
+64,Wyższa Jakość,555-676-637,wyższa.jakość@dostawy.com
+65,Rapida Transport,555-667-105,rapida.transport@example.com
+66,Ultra Przesyłki,555-699-688,ultra.przesyłki@example.com
+67,Optymalna Logistyka,555-825-191,optymalna.logistyka@logistyka.pl
+68,Logistyczna Doskonałość,555-305-672,logistyczna.doskonałość@dostawy.com
+69,Dostawcy24,555-190-594,dostawcy24@logistyka.pl
+70,Eksport Spedycja,555-921-356,eksport.spedycja@business.com
+71,Centrum Transportu,555-925-451,centrum.transportu@logistyka.pl
+72,Kurierzy Polscy,555-348-354,kurierzy.polscy@dostawy.com
+73,Transport Polska,555-966-769,transport.polska@przesylki.pl
+74,Dostawy Ekspres,555-547-139,dostawy.ekspres@dostawy.com
+75,Ładunki24,555-113-959,ładunki24@przesylki.pl
+76,Supplies Spedycja,555-678-528,supplies.spedycja@logistyka.pl
+77,Global Freight,555-618-137,global.freight@example.com
+78,Speedy Cargo,555-820-244,speedy.cargo@business.com
+79,Secure Transport,555-755-108,secure.transport@business.com
+80,Logistyk24,555-650-487,logistyk24@dostawy.com
+81,Trans Polska,555-541-327,trans.polska@logistyka.pl
+82,Ruch Towarowy,555-657-300,ruch.towarowy@example.com
+83,Kierunek Logistyka,555-964-955,kierunek.logistyka@logistyka.pl
+84,Transport Nowe,555-616-634,transport.nowe@example.com
+85,ABC Spedycja,555-502-475,abc.spedycja@dostawy.com
+86,XZY Dostawy,555-167-808,xzy.dostawy@przesylki.pl
+87,Globalne Logistyki,555-194-934,globalne.logistyki@example.com
+88,Szybka Dostawa,555-637-815,szybka.dostawa@przesylki.pl
+89,Express Towary,555-627-724,express.towary@example.com
+90,Prime Logistyka,555-632-124,prime.logistyka@logistyka.pl
+91,Peak Przesyłki,555-888-653,peak.przesyłki@business.com
+92,Wyższa Jakość,555-679-819,wyższa.jakość@dostawy.com
+93,Rapida Transport,555-959-689,rapida.transport@logistyka.pl
+94,Ultra Przesyłki,555-759-387,ultra.przesyłki@business.com
+95,Optymalna Logistyka,555-156-959,optymalna.logistyka@business.com
+96,Logistyczna Doskonałość,555-286-700,logistyczna.doskonałość@example.com
+97,Dostawcy24,555-555-469,dostawcy24@logistyka.pl
+98,Eksport Spedycja,555-821-794,eksport.spedycja@przesylki.pl
+99,Centrum Transportu,555-876-810,centrum.transportu@example.com
+100,Kurierzy Polscy,555-850-490,kurierzy.polscy@business.com

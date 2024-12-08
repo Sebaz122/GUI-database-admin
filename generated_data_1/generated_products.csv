@@ -1,0 +1,21 @@
+produkt_id,nazwa_produktu,ilosc_na_magazynie,ilosc_zamawiana_do_magazynu,cena_produktu,dostawca_id
+1,Dysk SSD 1TB,107,50,230.23,80
+2,Router WiFi,21,22,341.67,59
+3,Ładowarka samochodowa,148,27,115.13,62
+4,Klawiatura mechaniczna,47,21,52.91,13
+5,Słuchawki gamingowe,74,16,265.78,13
+6,Pendrive 64GB,113,29,69.02,100
+7,Smartfon,163,24,328.5,21
+8,Drukarka laserowa,172,20,323.49,53
+9,Tablet graficzny,108,27,301.86,46
+10,Myszka komputerowa,70,27,334.25,23
+11,"Tablet 10""",70,17,335.35,95
+12,Zasilacz UPS,101,36,336.22,70
+13,Drukarka atramentowa,78,29,59.33,82
+14,"Monitor 24""",79,37,438.85,88
+15,Ładowarka bezprzewodowa,51,13,243.54,99
+16,Kamera internetowa,174,17,270.67,25
+17,Powerbank 10000mAh,104,21,174.88,21
+18,"Monitory LED 27""",147,30,348.97,11
+19,Głośniki Bluetooth,106,49,336.86,50
+20,Lodówka turystyczna,154,13,73.94,21

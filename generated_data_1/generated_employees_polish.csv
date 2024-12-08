@@ -1,0 +1,101 @@
+pracownik_id,imię,nazwisko,email,stanowisko,date_zatrudnienia
+1,Kaja,Wojaczek,jędrzej.filak@example.com,Specjalista ds. finansów,2020-09-16
+2,Angelika,Stypka,ernest.nieborak@example.com,Specjalista ds. sprzedaży,2023-05-26
+3,Tadeusz,Czerniakiewicz,alan.chatys@example.com,Przedstawiciel handlowy,2023-08-25
+4,Tomasz,Nowotny,jan.obst@example.com,Przedstawiciel handlowy,2021-08-02
+5,Ksawery,Grupa,bruno.jałowiec@example.com,Przedstawiciel handlowy,2024-06-03
+6,Ewa,Liedtke,aniela.wilusz@example.com,Specjalista IT,2020-03-17
+7,Adrian,Młotek,roksana.ryznar@example.com,Specjalista ds. logistyki,2020-08-01
+8,Eliza,Lato,elżbieta.wojtiuk@example.com,Specjalista ds. finansów,2024-01-17
+9,Eliza,Kobryń,borys.kielczyk@example.com,Specjalista ds. sprzedaży,2023-06-16
+10,Julian,Flaga,dorota.lizoń@example.com,Specjalista ds. finansów,2024-09-10
+11,Adrianna,Szara,nikodem.łuszczak@example.com,Specjalista ds. finansów,2023-04-21
+12,Andrzej,Gleba,janina.cygal@example.com,Specjalista IT,2022-10-22
+13,Robert,Piejko,franciszek.wiertel@example.com,Specjalista IT,2023-10-20
+14,Iwo,Nocek,krzysztof.przystupa@example.com,Przedstawiciel handlowy,2021-11-22
+15,Igor,Palak,cezary.skupin@example.com,Specjalista ds. marketingu,2021-10-08
+16,Maciej,Brzęk,fabian.tyka@example.com,Inżynier,2023-01-31
+17,Gustaw,Łabno,leonard.antoń@example.com,Kierownik projektów,2021-05-09
+18,Aurelia,Gemza,adrianna.zagozda@example.com,Specjalista ds. sprzedaży,2022-01-07
+19,Róża,Hojka,leon.tondera@example.com,Specjalista IT,2022-08-13
+20,Rafał,Zdonek,jan.mak@example.com,Kierownik projektów,2024-08-25
+21,Tadeusz,Ofiara,robert.zbiciak@example.com,Asystentka,2021-12-16
+22,Alex,Fijoł,fabian.pastuszko@example.com,Specjalista IT,2020-07-13
+23,Julianna,Krysta,marcin.latuszek@example.com,Asystentka,2022-07-29
+24,Olga,Arendarczyk,karina.cudzich@example.com,Przedstawiciel handlowy,2023-04-28
+25,Tomasz,Mokwa,bianka.pik@example.com,Specjalista ds. sprzedaży,2020-12-04
+26,Mieszko,Berek,dariusz.dycha@example.com,Przedstawiciel handlowy,2024-12-02
+27,Grzegorz,Misiuk,daniel.tondera@example.com,Kierownik projektów,2020-05-15
+28,Karina,Cimoch,elżbieta.hubert@example.com,Specjalista ds. marketingu,2023-01-21
+29,Krystyna,Siara,rafał.peszko@example.com,Specjalista ds. marketingu,2023-07-21
+30,Krzysztof,Bugno,marek.czuj@example.com,Asystentka,2020-02-08
+31,Maks,Cyrek,maksymilian.łuszczyk@example.com,Menadżer sprzedaży,2024-11-06
+32,Radosław,Biesaga,maks.maszota@example.com,Menadżer sprzedaży,2023-03-26
+33,Patryk,Myga,krzysztof.hamerla@example.com,Specjalista ds. sprzedaży,2022-04-09
+34,Jacek,Kamieniak,igor.melcer@example.com,Asystentka,2024-02-13
+35,Krystyna,Ropiak,kacper.bogumił@example.com,Inżynier,2023-11-20
+36,Julita,Beker,kalina.nyc@example.com,Asystentka zarządu,2023-07-28
+37,Aleks,Olesiejuk,natan.łaszczyk@example.com,Kierownik projektów,2021-11-17
+38,Igor,Piechura,aleks.pachołek@example.com,Przedstawiciel handlowy,2020-11-23
+39,Marianna,Glanc,szymon.pagacz@example.com,Menadżer sprzedaży,2020-11-01
+40,Cezary,Grębowiec,julian.zadora@example.com,Asystentka zarządu,2021-10-17
+41,Tomasz,Trybała,tola.walenciak@example.com,Kierownik projektów,2020-05-29
+42,Sylwia,Lizoń,anita.sławik@example.com,Asystentka,2022-04-20
+43,Sylwia,Czerner,konrad.zimniak@example.com,Specjalista ds. finansów,2024-02-21
+44,Dawid,Gebauer,nikodem.tyma@example.com,Kierownik projektów,2022-04-14
+45,Antoni,Sołek,rafał.florian@example.com,Specjalista ds. sprzedaży,2022-07-14
+46,Olgierd,Sromek,mariusz.toczko@example.com,Kierownik projektów,2021-08-29
+47,Adrianna,Myszak,kalina.gałach@example.com,Specjalista ds. sprzedaży,2022-03-01
+48,Sylwia,Miękus,nela.wietecha@example.com,Asystentka zarządu,2022-10-15
+49,Fabian,Zaniewicz,aleks.ćwirko@example.com,Kierownik projektów,2020-08-25
+50,Adrian,Jędruch,gabriel.pachołek@example.com,Asystentka,2020-03-01
+51,Mieszko,Wiciak,sandra.gregorczuk@example.com,Specjalista ds. finansów,2020-04-27
+52,Daniel,Kubieniec,ryszard.słupik@example.com,Asystentka zarządu,2022-01-04
+53,Ignacy,Piszcz,ksawery.siemieniec@example.com,Asystentka,2020-01-21
+54,Julianna,Radko,łukasz.klyta@example.com,Specjalista ds. finansów,2024-01-17
+55,Eliza,Groń,wiktor.toczko@example.com,Przedstawiciel handlowy,2022-08-07
+56,Angelika,Polnik,alan.wiatrak@example.com,Specjalista ds. finansów,2024-04-25
+57,Stefan,Jakimiak,sonia.kiryluk@example.com,Specjalista ds. marketingu,2023-04-09
+58,Albert,Zapaśnik,aleksander.stożek@example.com,Kierownik projektów,2020-10-14
+59,Janina,Siedlarz,borys.tabiś@example.com,Specjalista ds. sprzedaży,2023-05-16
+60,Damian,Brodawka,konrad.dzika@example.com,Kierownik projektów,2020-06-01
+61,Bartek,Sochaj,emil.zamora@example.com,Specjalista ds. logistyki,2021-09-08
+62,Sylwia,Hamerla,ksawery.oczko@example.com,Specjalista IT,2020-10-01
+63,Artur,Gołas,patryk.dymarczyk@example.com,Specjalista ds. logistyki,2022-01-21
+64,Julian,Patoka,kornelia.kryszkiewicz@example.com,Specjalista ds. marketingu,2022-09-30
+65,Bartek,Hołota,nikodem.peda@example.com,Kierownik projektów,2023-05-18
+66,Błażej,Pioch,mikołaj.rychcik@example.com,Przedstawiciel handlowy,2024-02-01
+67,Dagmara,Kobel,mariusz.błądek@example.com,Przedstawiciel handlowy,2022-05-30
+68,Karol,Bujko,tymon.staręga@example.com,Specjalista ds. marketingu,2023-09-21
+69,Kalina,Moroń,sylwia.bąbel@example.com,Asystentka zarządu,2022-11-04
+70,Ryszard,Nabiałek,kacper.ledzion@example.com,Asystentka zarządu,2022-12-19
+71,Ignacy,Ogonek,bianka.dudkowiak@example.com,Specjalista ds. marketingu,2022-09-20
+72,Ewa,Murach,ida.znojek@example.com,Specjalista ds. finansów,2021-04-11
+73,Nataniel,Warwas,jerzy.kopiczko@example.com,Specjalista ds. sprzedaży,2020-02-13
+74,Stanisław,Bartłomiejczyk,łukasz.pazera@example.com,Asystentka zarządu,2024-10-24
+75,Gabriel,Drozdowicz,leonard.helman@example.com,Specjalista ds. marketingu,2021-02-19
+76,Fryderyk,Minta,olga.doruch@example.com,Specjalista ds. logistyki,2024-08-25
+77,Adam,Wiekiera,radosław.ciechowicz@example.com,Menadżer sprzedaży,2020-09-13
+78,Rafał,Jędruszczak,agnieszka.jonak@example.com,Asystentka,2020-09-22
+79,Jakub,Pleskot,artur.bobik@example.com,Specjalista IT,2021-11-27
+80,Angelika,Gogola,aniela.paw@example.com,Kierownik projektów,2022-01-22
+81,Tymoteusz,Wochnik,kazimierz.kozdrój@example.com,Specjalista ds. finansów,2022-01-13
+82,Kornel,Biernacik,adrian.senator@example.com,Kierownik projektów,2021-02-14
+83,Angelika,Pawlonka,emil.kroll@example.com,Menadżer sprzedaży,2020-10-09
+84,Ada,Hewelt,kamil.szyma@example.com,Asystentka zarządu,2024-10-18
+85,Stefan,Hennig,anna maria.wons@example.com,Asystentka,2020-01-05
+86,Maksymilian,Nieradzik,krystyna.klin@example.com,Menadżer sprzedaży,2021-04-14
+87,Wojciech,Chudoba,blanka.szkoda@example.com,Inżynier,2020-09-16
+88,Ada,Burzec,justyna.konieczek@example.com,Specjalista ds. sprzedaży,2023-06-26
+89,Marcel,Działo,dominik.giża@example.com,Specjalista ds. finansów,2023-11-07
+90,Kalina,Stanclik,norbert.olas@example.com,Menadżer sprzedaży,2021-02-15
+91,Sonia,Wilkos,dawid.makulec@example.com,Inżynier,2021-03-18
+92,Artur,Wódka,nikodem.rykała@example.com,Asystentka zarządu,2022-07-14
+93,Krystyna,Patoła,adam.mrotek@example.com,Specjalista ds. finansów,2021-04-07
+94,Stanisław,Stożek,nikodem.latek@example.com,Specjalista ds. logistyki,2021-08-01
+95,Szymon,Pietrusiewicz,konrad.szkatuła@example.com,Specjalista ds. marketingu,2020-07-25
+96,Filip,Boruń,szymon.sochaj@example.com,Specjalista ds. logistyki,2020-05-26
+97,Jan,Kozok,oliwier.kujawiak@example.com,Asystentka,2020-06-24
+98,Hubert,Kuziora,leon.sykut@example.com,Specjalista IT,2020-03-07
+99,Bianka,Kuchciak,aleksander.szymajda@example.com,Asystentka zarządu,2023-05-16
+100,Adam,Gruszczyk,marika.gula@example.com,Asystentka zarządu,2023-03-05

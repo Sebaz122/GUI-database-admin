@@ -23,7 +23,7 @@ def print_uczestnik(cursor):
 
 
 def set_path(cursor):
-    cursor.execute("SET SEARCH_PATH to kurs")
+    cursor.execute("SET SEARCH_PATH to public")
 
 
 def window_center(root):
@@ -36,8 +36,8 @@ def window_center(root):
     root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
 
-def print_uczestnik_on_screen(root, cursor):
-    cursor.execute("SELECT * FROM uczestnik")
+def print_table(root, cursor, table_name):
+    cursor.execute(f"SELECT * FROM  {table_name}")
     dataset = cursor.fetchall()
     total_rows = len(dataset)
     total_cols = len(dataset[0])
@@ -51,8 +51,7 @@ def print_uczestnik_on_screen(root, cursor):
 
 
 
-def fetch_table_columns(cursor, table_name, schema='kurs'):
-    # Pobiera nazwy kolumn z podanej tabeli w schemacie 'kurs'
+def fetch_table_columns(cursor, table_name, schema='public'):
     # return - Lista nazw kolumn
     query = """
         SELECT column_name
@@ -101,7 +100,7 @@ def add_record(root, cursor, conn):
     top = Toplevel(root)
     top.geometry("400x400")
     top.attributes('-topmost', True)
-    cursor.execute("SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'kurs';")
+    cursor.execute("SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public';")
     tables = [row[0] for row in cursor.fetchall()]
     Label(top, text="Wybierz tabelę:").pack()
     table_name_var = StringVar()
@@ -128,8 +127,12 @@ if __name__ == "__main__":
     right_frame.pack(side=RIGHT)
     # Table_test
 
-    button1 = Button(left_frame, text="Wyprintuj uczestników kursu",command=lambda: print_uczestnik_on_screen(right_frame, cursor))
-    button2 = Button(left_frame, text="Dodaj rekord", command=lambda: add_record(root, cursor, connection))  # włóż oba w widget
+    button1 = Button(left_frame, text="Wyprintuj uczestników kursu",command=lambda: print_table(right_frame, cursor, "pracownicy"))
+    button2 = Button(left_frame, text="Dodaj rekord", command=lambda: add_record(root, cursor, connection))  
     button1.place(x=50, y=50)
     button2.place(x=100, y=100)
     root.mainloop()
+
+
+
+    #printowanie tabeli i dodawanie rekordów dziala

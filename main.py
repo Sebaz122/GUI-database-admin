@@ -128,9 +128,11 @@ if __name__ == "__main__":
     # Table_test
 
     button1 = Button(left_frame, text="Wyprintuj uczestników kursu",command=lambda: print_table(right_frame, cursor, "pracownicy"))
-    button2 = Button(left_frame, text="Dodaj rekord", command=lambda: add_record(root, cursor, connection))  
+    button2 = Button(left_frame, text="Dodaj rekord", command=lambda: add_record(root, cursor, connection))
+    button3 = Button(left_frame, text="Wyprintuj widok", command=lambda: print_table(root,cursor,"zamowienie_szczegoly"))
     button1.place(x=50, y=50)
     button2.place(x=100, y=100)
+    button3.place(x=100,y=150)
     root.mainloop()
 
 

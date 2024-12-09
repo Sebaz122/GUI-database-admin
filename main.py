@@ -109,6 +109,12 @@ def add_record(root, cursor, conn):
     Button(top, text="Wybierz tabelę", command=select_table).pack()
     entries = {}
 
+def sum_costs(root,cursor):
+    cursor.execute("SELECT suma_zamowien();")
+    data=cursor.fetchall()
+    Label(root, text=f"{data}").place(x=300,y=300)
+    print(str(data[0]))
+
 if __name__ == "__main__":
     load_dotenv()
     # Simple window
@@ -121,18 +127,20 @@ if __name__ == "__main__":
     cursor = connection.cursor()
     set_path(cursor)
     # Dividing root frame to parts and placing them
-    left_frame = Frame(root, width=200, height=200, background="crimson")
-    left_frame.pack(side=LEFT)
+    left_frame = Frame(root, width=400, height=400, background="crimson")
+    left_frame.place(x=0,y=0)
     right_frame = Frame(root, width=800, height=500, background="lightgreen")
-    right_frame.pack(side=RIGHT)
+    right_frame.place(x=300,y=300)
     # Table_test
 
     button1 = Button(left_frame, text="Wyprintuj uczestników kursu",command=lambda: print_table(right_frame, cursor, "pracownicy"))
     button2 = Button(left_frame, text="Dodaj rekord", command=lambda: add_record(root, cursor, connection))
     button3 = Button(left_frame, text="Wyprintuj widok", command=lambda: print_table(root,cursor,"zamowienie_szczegoly"))
+    button4=Button(left_frame, text="Suma kosztow wszystkich zamowien", command=lambda: sum_costs(root,cursor))
     button1.place(x=50, y=50)
     button2.place(x=100, y=100)
     button3.place(x=100,y=150)
+    button4.place(x=100,y=200)
     root.mainloop()
 
 

@@ -1,8 +1,70 @@
 import psycopg2 as ps
 import os
 from tkinter import *  
-from tkinter import ttk
 from dotenv import load_dotenv
+import matplotlib.pyplot as plt
+
+def plot_sales_per_month(cursor):
+    query = """
+        SELECT 
+            DATE_TRUNC('month', data_zamowienia) AS sale_month,
+            COUNT(*) AS sales_count
+        FROM zamowienie
+        GROUP BY sale_month
+        ORDER BY sale_month;
+    """
+    cursor.execute(query)
+    data=cursor.fetchall()
+    months = [row[0].strftime('%Y-%m') for row in data]
+    sales_counts = [row[1] for row in data]
+    plt.figure(figsize=(10, 6))
+    plt.bar(months, sales_counts, color='skyblue', edgecolor='black')
+    plt.title('Ilość zamówień na miesiąc i rok')
+    plt.xlabel('Miesiąc i rok')
+    plt.ylabel('Ilość zamówień')
+    plt.show()
+
+def generate_sales_report(cursor):
+    query = """
+        SELECT 
+            p.nazwa_produktu, 
+            COUNT(d.id_produktu) AS liczba_sprzedazy
+        FROM produkty p
+        JOIN dane_zamowien d ON p.produkt_id = d.id_produktu
+        GROUP BY p.nazwa_produktu
+        ORDER BY liczba_sprzedazy DESC;
+    """
+    cursor.execute(query)
+    data = cursor.fetchall()
+    product_names = [row[0] for row in data]
+    sales_counts = [row[1] for row in data]
+    plt.figure(figsize=(12, 6))
+    plt.bar(product_names, sales_counts, color='skyblue')
+    plt.xlabel('Nazwa produktu')
+    plt.ylabel('Ilość zamówień')
+    plt.title('Ilość zamówień danego')
+    plt.xticks(rotation=45, ha='right', fontsize=10)
+    plt.show()
+
+def generate_payment_status_report(cursor):
+    cursor.execute("SELECT procent_oplaconych_zamowien();")
+    result = cursor.fetchone()
+    percent_paid = float(result[0]) 
+    percent_unpaid = 100 - percent_paid
+    labels = ['Opłacone zamówienia', 'Nieopłacone zamówienia']
+    sizes = [percent_paid, percent_unpaid]
+    colors = ['green', 'crimson']
+    plt.figure(figsize=(8, 6))
+    plt.pie(
+        sizes, 
+        labels=labels, 
+        autopct='%1.1f%%', 
+        startangle=90, 
+        colors=colors,
+    )
+    plt.title('Procent zamówień opłaconych i nieopłaconych', fontsize=14)
+    plt.show()
+
 
 def load_database():
     connection = ps.connect(
@@ -141,7 +203,7 @@ def delete_record(root, cursor, conn):
             widget.destroy()
         columns = fetch_table_columns(cursor, selected_table)
         id_col=columns[0]
-        Label(top, text=f"Podaj id rekordu który chcesz edytować z tabeli: {selected_table}", font=("Arial", 12, "bold")).pack()
+        Label(top, text=f"Podaj id rekordu który chcesz USUNĄĆ z tabeli: {selected_table}", font=("Arial", 12, "bold")).pack()
         # entries.clear()
         Label(top, text=columns[0]).place(x=10,y=30)
         entry_id=Entry(top)
@@ -185,8 +247,6 @@ def print_any_table(root, cursor):
     Button(top, text="Wybierz tabelę", command=select_table).pack()
 
 
-
-
 def fetch_table_columns(cursor, table_name, schema='public'):
     # return - Lista nazw kolumn
     query = """
@@ -209,7 +269,7 @@ def add_record(root, cursor, conn):
         for widget in top.winfo_children():
             widget.destroy()
         columns = fetch_table_columns(cursor, selected_table)
-        Label(top, text=f"Adding to table: {selected_table}", font=("Arial", 12, "bold")).pack()
+        Label(top, text=f"Dodawane rekordu do tabeli: {selected_table}", font=("Arial", 12, "bold")).pack()
 
         entries.clear()
         for idx, column in enumerate(columns):
@@ -272,14 +332,20 @@ if __name__ == "__main__":
     
     button1=Button(left_frame, text="Pokaż tabelę", command=lambda: print_any_table(root,cursor))
     button2 = Button(left_frame, text="Dodaj rekord", command=lambda: add_record(root, cursor, connection))
-    button3 = Button(left_frame, text="Pokaż widok(td)", command=lambda: print_table(root,cursor,"zamowienie_szczegoly"))
-    button4=Button(left_frame, text="Suma kosztow wszystkich zamowien", command=lambda: sum_costs(root,cursor))
-    button5 = Button(left_frame, text="Edytuj rekord",command=lambda: edit_record(root, cursor, connection))
-    button6=Button(left_frame, text="Usuń rekord", command=lambda: delete_record(root, cursor, connection))
+    button3 = Button(left_frame, text="Edytuj rekord",command=lambda: edit_record(root, cursor, connection))
+    button4=Button(left_frame, text="Usuń rekord", command=lambda: delete_record(root, cursor, connection))
+    button5 = Button(left_frame, text="Pokaż widok(td)", command=lambda: print_table(root,cursor,"zamowienie_szczegoly"))
+    button6=Button(left_frame, text="Suma kosztow wszystkich zamowien(funkcja td)", command=lambda: sum_costs(root,cursor))
+    button7=Button(left_frame, text="Ilość zamówień na miesiąc", command=lambda: plot_sales_per_month(cursor))
+    button8=Button(left_frame, text="Ilość zamówień danego produktu", command=lambda: generate_sales_report(cursor))
+    button9=Button(left_frame, text="Ilość opłaconych zamówień (procentowo)", command=lambda: generate_payment_status_report(cursor))
     button1.place(x=50,y=25)
     button2.place(x=50, y=75)
     button3.place(x=50,y=125)
     button4.place(x=50,y=175)
     button5.place(x=50,y=225)
     button6.place(x=50,y=275)
+    button7.place(x=250,y=25)
+    button8.place(x=250,y=75)
+    button9.place(x=250,y=125)
     root.mainloop()

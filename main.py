@@ -54,7 +54,7 @@ def print_table(root, cursor, table_name):
     for j in range(total_cols):
         header = Label(table_frame, text=f"{column_names[j]}", font=('Arial', 12, 'bold'), background="lightblue")
         header.grid(row=0, column=j, sticky="NEWS")
-        
+
     for i in range(total_rows):
         for j in range(total_cols):
             e = Entry(table_frame, width=20, fg='blue',
@@ -130,8 +130,43 @@ def edit_record(root,cursor, conn):
     Button(top, text="Wybierz tabelę", command=select_table).pack()
     entries={}
 
-def delete_record(root, cursor,conn):
-    ...
+def delete_record(root, cursor, conn):
+    def select_table():
+        selected_table = table_name_var.get()
+        if selected_table:
+            create_form(selected_table)
+
+    def create_form(selected_table):
+        for widget in top.winfo_children():
+            widget.destroy()
+        columns = fetch_table_columns(cursor, selected_table)
+        id_col=columns[0]
+        Label(top, text=f"Podaj id rekordu który chcesz edytować z tabeli: {selected_table}", font=("Arial", 12, "bold")).pack()
+        # entries.clear()
+        Label(top, text=columns[0]).place(x=10,y=30)
+        entry_id=Entry(top)
+        entry_id.place(x=140,y=30)
+        button_id=Button(top, text="Usuń rekord", command=lambda: delete(top, cursor, id_col,entry_id.get(), selected_table))
+        button_id.place(x=10,y=70)
+    def delete(top, cursor, id_col, entry_id, selected_table):
+        try:
+            cursor.execute(f"DELETE FROM {selected_table} WHERE {id_col} = {entry_id}")
+            conn.commit()
+            top.update_idletasks()
+            Label(top, text="Rekord został usunięty!", fg="green").pack()
+        except Exception as e:
+            Label(top, text=f"Błąd: {str(e)}", fg="red").pack()
+
+    top = Toplevel(root)
+    top.geometry("400x400")
+    top.attributes('-topmost')
+    cursor.execute("SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public';")
+    tables = [row[0] for row in cursor.fetchall()]
+    Label(top, text="Wybierz tabelę:").pack()
+    table_name_var = StringVar()
+    table_menu = OptionMenu(top, table_name_var, "", *tables)
+    table_menu.pack()
+    Button(top, text="Wybierz tabelę", command=select_table).pack()
 
 def print_any_table(root, cursor):
     def select_table():

@@ -1,8 +1,8 @@
 import psycopg2 as ps
 import os
-from tkinter import *  # To change- import * are bad habit
+from tkinter import *  
+from tkinter import ttk
 from dotenv import load_dotenv
-
 
 def load_database():
     connection = ps.connect(
@@ -37,16 +37,50 @@ def window_center(root):
 
 
 def print_table(root, cursor, table_name):
+    top=Toplevel(root)
     cursor.execute(f"SELECT * FROM  {table_name}")
     dataset = cursor.fetchall()
     total_rows = len(dataset)
     total_cols = len(dataset[0])
+    top.geometry=(f"{total_cols*80}x{root.winfo_screenheight()}")
+    canvas = Canvas(top, borderwidth=0)
+    canvas.pack(side=LEFT, fill=BOTH, expand=True)
+    h=Scrollbar(top, orient="vertical", command=canvas.yview)
+    h.pack(side=RIGHT, fill=Y)
+    table_frame=Frame(canvas)
+    canvas.create_window((0, 0), window=table_frame, anchor="nw")
+
+
+
     for i in range(total_rows):
         for j in range(total_cols):
-            e = Entry(root, width=20, fg='blue',
-                      background="lightblue", font=('Arial', 16, 'bold'))
+            e = Entry(table_frame, width=20, fg='blue',
+                      background="lightblue", font=('Arial', 12))
             e.grid(row=i, column=j, sticky="NEWS")
             e.insert(END, dataset[i][j])
+    table_frame.update_idletasks()
+    canvas.config(scrollregion=canvas.bbox("all"))
+    canvas.configure(yscrollcommand=h.set)
+
+
+    
+
+
+def print_any_table(root, cursor):
+    def select_table():
+        selected_table = table_name_var.get()
+        if selected_table:
+            print_table(top, cursor, selected_table)
+    top = Toplevel(root)
+    top.geometry("400x400")
+    top.attributes('-topmost')
+    cursor.execute("SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public';")
+    tables = [row[0] for row in cursor.fetchall()]
+    Label(top, text="Wybierz tabelę:").pack()
+    table_name_var = StringVar()
+    table_menu = OptionMenu(top, table_name_var, "", *tables)
+    table_menu.pack()
+    Button(top, text="Wybierz tabelę", command=select_table).pack()
 
 
 
@@ -110,7 +144,7 @@ def add_record(root, cursor, conn):
     entries = {}
 
 def sum_costs(root,cursor):
-    cursor.execute("SELECT suma_zamowien();")
+    cursor.execute("SELECT suma_ceny_zamowien();")
     data=cursor.fetchall()
     Label(root, text=f"{data}").place(x=300,y=300)
     print(str(data[0]))
@@ -120,29 +154,27 @@ if __name__ == "__main__":
     # Simple window
     root = Tk()
     root.title("Database GUI")
-    root.configure(bg="lightblue")
+    root.configure(bg="lightgray")
     window_center(root)
     ###
     connection = load_database()
     cursor = connection.cursor()
     set_path(cursor)
     # Dividing root frame to parts and placing them
-    left_frame = Frame(root, width=400, height=400, background="crimson")
+    left_frame = Frame(root, width=root.winfo_screenwidth(), height=400, background="crimson")
     left_frame.place(x=0,y=0)
-    right_frame = Frame(root, width=800, height=500, background="lightgreen")
-    right_frame.place(x=300,y=300)
+    bottom_frame = Frame(root, width=root.winfo_screenwidth(), height=root.winfo_screenheight(), background="gray")
+    bottom_frame.place(x=0,y=420)
     # Table_test
 
-    button1 = Button(left_frame, text="Wyprintuj uczestników kursu",command=lambda: print_table(right_frame, cursor, "pracownicy"))
+    # button1 = Button(left_frame, text="Wyprintuj uczestników kursu",command=lambda: print_table(bottom_frame, cursor, "pracownicy"))
+    button1=Button(left_frame, text="Pokaż tabelę", command=lambda: print_any_table(root,cursor))
     button2 = Button(left_frame, text="Dodaj rekord", command=lambda: add_record(root, cursor, connection))
-    button3 = Button(left_frame, text="Wyprintuj widok", command=lambda: print_table(root,cursor,"zamowienie_szczegoly"))
+    button3 = Button(left_frame, text="Pokaż widok(td)", command=lambda: print_table(root,cursor,"zamowienie_szczegoly"))
     button4=Button(left_frame, text="Suma kosztow wszystkich zamowien", command=lambda: sum_costs(root,cursor))
-    button1.place(x=50, y=50)
-    button2.place(x=100, y=100)
-    button3.place(x=100,y=150)
-    button4.place(x=100,y=200)
+    # button1.place(x=50, y=25)
+    button1.place(x=50,y=25)
+    button2.place(x=50, y=75)
+    button3.place(x=50,y=125)
+    button4.place(x=50,y=175)
     root.mainloop()
-
-
-
-    #printowanie tabeli i dodawanie rekordów dziala

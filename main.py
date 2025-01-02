@@ -101,18 +101,18 @@ def window_center(root):
 def print_table(root, cursor, table_name):
     top=Toplevel(root)
     cursor.execute(f"SELECT * FROM  {table_name}")
+    top.resizable(True,True)
     dataset = cursor.fetchall()
     total_rows = len(dataset)
     total_cols = len(dataset[0])
-    top.geometry=(f"{total_cols*80}x{root.winfo_screenheight()}")
+    top.geometry(f"{180*total_cols+120}x{20*total_rows}")
+    #top.geometry=(f"{600}x{600}")
     canvas = Canvas(top, borderwidth=0)
     # canvas.pack(side=LEFT, fill=BOTH, expand=True)
-    canvas.place(x=0, y=0, relwidth=0.9, relheight=0.9)  
+    canvas.place(x=0, y=0, relwidth=0.9, relheight=0.9)
     h=Scrollbar(top, orient="vertical", command=canvas.yview)
-    # h.pack(side=RIGHT, fill=Y)
     h.place(relx=0.9, rely=0, relheight=0.94)
     g=Scrollbar(top, orient="horizontal", command=canvas.xview)
-    # g.pack(side=BOTTOM, fill=X)
     g.place(x=0, rely=0.9, relwidth=0.94)
     table_frame=Frame(canvas)
     canvas.create_window((0, 0), window=table_frame, anchor="nw")
@@ -151,22 +151,29 @@ def edit_record(root,cursor, conn):
     def clear_and_create(top, columns, entry_id, selected_table):
         for widget in top.winfo_children():
             widget.destroy()
-        if entry_id:
-            cursor.execute(f"SELECT * FROM {selected_table} WHERE {columns[0]} = {entry_id}")
-            record=cursor.fetchone()
-            if record:
-                for idx, column in enumerate(columns[1:]):
-                    Label(top, text=column).place(x=10, y=10 + idx * 40 + 20)
-                    entry = Entry(top)
-                    entry.place(x=140, y=10 + idx * 40 + 20)
-                    entry.insert(END, record[idx+1])
-                    entries[column] = entry
-                button_add = Button(top, text="Edytuj rekord", command= lambda: save_record(top, selected_table, columns, entry_id))
-                button_add.place(x=10, y=10 + len(columns) * 30 + 70)
+        cursor.execute(f"SELECT 1 FROM {selected_table} WHERE {columns[0]} = {entry_id}")
+        result=cursor.fetchone()
+        if not result:
+            error_label=Label(top, text="Rekord nie został znaleziony", fg="red")
+            error_label.pack(side=BOTTOM)
+            top.after(3000, error_label.destroy)
+        elif result:
+            if entry_id:
+                cursor.execute(f"SELECT * FROM {selected_table} WHERE {columns[0]} = {entry_id}")
+                record=cursor.fetchone()
+                if record:
+                    for idx, column in enumerate(columns[1:]):
+                        Label(top, text=column).place(x=10, y=10 + idx * 40 + 20)
+                        entry = Entry(top)
+                        entry.place(x=140, y=10 + idx * 40 + 20)
+                        entry.insert(END, record[idx+1])
+                        entries[column] = entry
+                    button_add = Button(top, text="Edytuj rekord", command= lambda: save_record(top, selected_table, columns, entry_id))
+                    button_add.place(x=10, y=10 + len(columns) * 30 + 70)
+                else:
+                    Label(top, text="Rekord nie został znaleziony")
             else:
-                Label(top, text="Rekord nie został znaleziony")
-        else:
-            Label(top, text="Podaj ID rekordu")
+                Label(top, text="Podaj ID rekordu")
 
     def save_record(top, table_name, columns, record_id):
         data = {col: entries[col].get() for col in columns[1:]}  
@@ -218,12 +225,20 @@ def delete_record(root, cursor, conn):
         button_id.place(x=10,y=70)
     def delete(top, cursor, id_col, entry_id, selected_table):
         try:
+            cursor.execute(f"SELECT 1 FROM {selected_table} WHERE {id_col} = {entry_id}")
+            result=cursor.fetchone()
+            if not result:
+                raise Exception
             cursor.execute(f"DELETE FROM {selected_table} WHERE {id_col} = {entry_id}")
             conn.commit()
             top.update_idletasks()
-            Label(top, text="Rekord został usunięty!", fg="green").pack()
-        except Exception as e:
-            Label(top, text=f"Błąd: {str(e)}", fg="red").pack()
+            success_label=Label(top, text="Rekord został usunięty!", fg="green")
+            success_label.pack(side=BOTTOM)
+            top.after(3000, success_label.destroy)
+        except Exception:
+            error_label=Label(top, text=f"Błąd: Nie ma podanego rekordu", fg="red")
+            error_label.pack(side=BOTTOM)
+            top.after(3000, error_label.destroy)
 
     top = Toplevel(root)
     top.geometry("400x400")
@@ -343,7 +358,7 @@ if __name__ == "__main__":
     button5=Button(left_frame, text="Ilość opłaconych zamówień (procentowo)", command=lambda: generate_payment_status_report(cursor))
     button6=Button(left_frame, text="Ilość zamówień danego produktu", command=lambda: generate_sales_report(cursor))
     button7=Button(left_frame, text="Ilość zamówień na miesiąc", command=lambda: plot_sales_per_month(cursor))
-    button8=Button(left_frame, text="Suma kosztow wszystkich zamowien(funkcja td)", command=lambda: sum_costs(root,cursor))
+    #button8=Button(left_frame, text="Suma kosztow wszystkich zamowien(funkcja td)", command=lambda: sum_costs(root,cursor))
     button9 = Button(left_frame, text="Zamowienia i szczegóły (widok)", command=lambda: print_table(root,cursor,"zamowienie_szczegoly"))
     button10 = Button(left_frame, text="Klienci i zamówienia (widok)", command=lambda: print_table(root,cursor,"klienci_i_ich_zamowienia"))
     button11 = Button(left_frame, text="Dostawcy i nadawcy (widok)", command=lambda: print_table(root,cursor,"dostawcy_i_nadawcy"))
@@ -354,7 +369,7 @@ if __name__ == "__main__":
     button5.place(x=50,y=225)
     button6.place(x=50,y=275)
     button7.place(x=250,y=25)
-    button8.place(x=250,y=75)
+    #button8.place(x=250,y=75)
     button9.place(x=250,y=125)
     button10.place(x=250,y=175)
     button11.place(x=300,y=225)

@@ -88,6 +88,8 @@ DB_PASSWORD = hasło_do_bazy
 DB_HOST = hostname_bazy_danych
 DB_PORT = port
 ```
-Oprócz tego trzeba zainstalować język Python oraz biblioteki opisane w pliku requirements.txt
+Oprócz tego trzeba zainstalować język Python oraz biblioteki opisane w pliku requirements.txt.
+
+Program można uruchomić zarówno komendą ```python main.py``` lub otwierając plik main.exe w systemie Windows.
 
 

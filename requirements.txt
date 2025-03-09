@@ -1,0 +1,8 @@
+#Język Python używany w aplikacji
+Python==3.13.2
+
+#Biblioteki:
+psycopg2==2.9.10
+tkinter==8.6.15
+matplotlib.pyplot==3.10.0
+python-dotenv==1.0.1
